@@ -1,0 +1,45 @@
+
+# Создайте файл index.html
+echo '<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamster Clicker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hamster Clicker</h1>
+        <p>Welcome to the Hamster Clicker game! Click the button below to start playing.</p>
+        <button class="button" onclick="sendClick()">Click!</button>
+    </div>
+
+    <script>
+        function sendClick() {
+            alert("Click sent!");
+        }
+    </script>
+</body>
+</html>' > index.html
+
+# Загрузите изменения в репозиторий
+git add index.html
+git commit -m "Add index.html"
+git push origin main
