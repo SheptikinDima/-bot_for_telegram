@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             text-align: center;
             background-color: #f0f0f0;
-            background-image: url('https://github.com/SheptikinDima/-bot_for_telegram/blob/main/images/Phone.png'); /* URL вашего фона */
+            background-image: url('https://github.com/SheptikinDima/-bot_for_telegram/raw/main/images/Phone.png'); /* URL вашего фона */
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -24,15 +24,15 @@
             background: rgba(255, 255, 255, 0.8);
             border-radius: 10px;
             max-width: 90%;
-            width: 400px;
+            width: 300px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .loading {
             display: none;
         }
         .fish {
-            display: none;
-            margin-top: 20px;
+            display: block;
+            margin: 20px auto;
             cursor: pointer;
             max-width: 100%;
             height: auto;
@@ -42,23 +42,14 @@
             font-size: 24px;
             font-weight: bold;
         }
-        @media (max-width: 600px) {
-            .container {
-                padding: 10px;
-                width: 90%;
-            }
-            #score {
-                font-size: 20px;
-            }
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Fish Clicker</h1>
+        <h1>FISH CLICKER</h1>
         <div class="loading" id="loading">Загрузка...</div>
-        <img src="https://github.com/SheptikinDima/-bot_for_telegram/blob/main/images/fish.png" alt="Fish" class="fish" id="fish"> <!-- URL вашего изображения рыбки -->
-        <div id="score">Очки: 0</div>
+        <img src="https://github.com/SheptikinDima/-bot_for_telegram/raw/main/images/fish.png" alt="Fish" class="fish" id="fish"> <!-- URL вашего изображения рыбки -->
+        <div id="score">ОЧКИ: 0</div>
     </div>
 
     <script>
@@ -76,7 +67,7 @@
         }
 
         fishElement.addEventListener('click', async () => {
-            const response = await fetch('http://localhost:5000/increment_clicks', {
+            const response = await fetch('http://localhost:5000/increment_clicks', { // Замените URL на ваш сервер
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -85,15 +76,15 @@
             });
             const data = await response.json();
             score = data.clicks;
-            scoreElement.innerText = Очки: ${score};
+            scoreElement.innerText = ОЧКИ: ${score};
         });
 
         async function loadClicks() {
             loadingElement.style.display = 'block';
-            const response = await fetch(`http://localhost:5000/get_clicks?user_id=${userId}`);
+            const response = await fetch(`http://localhost:5000/get_clicks?user_id=${userId}`); // Замените URL на ваш сервер
             const data = await response.json();
             score = data.clicks;
-            scoreElement.innerText = Очки: ${score};
+            scoreElement.innerText = ОЧКИ: ${score};
             setTimeout(showFish, 2000);
         }
 
